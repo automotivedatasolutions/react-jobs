@@ -171,6 +171,8 @@ function withJob(config) {
       this.resolveWork = function (props) {
         var workDefinition = void 0;
 
+        _this2.setState({ completed: false, data: null, error: null });
+
         try {
           workDefinition = work(props);
         } catch (error) {
@@ -216,7 +218,7 @@ function withJob(config) {
         }
 
         // Synchronous result.
-        _this2.setState({ completed: true, data: workDefinition });
+        _this2.setState({ completed: true, data: workDefinition, error: null });
 
         // Ensures asyncBootstrap continues
         return true;
